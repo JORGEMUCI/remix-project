@@ -107,6 +107,7 @@ export class EnvironmentExplorer extends ViewPlugin {
               plugin={this}
               title={provider.displayName}
               logos={provider.logos}
+              hideTitle={true}
               classList='EECellStyle'
               payload={provider.description}
               pinned={this.pinnedProviders.includes(provider.name)}
@@ -142,6 +143,7 @@ export class EnvironmentExplorer extends ViewPlugin {
               logos={provider.logos}
               classList='EECellStyle'
               payload={provider.description}
+              hideTitle={true}
               pinned={this.pinnedProviders.includes(provider.name)}
               pinStateCallback={async (pinned: boolean) => {
                 if (pinned) {
@@ -174,6 +176,7 @@ export class EnvironmentExplorer extends ViewPlugin {
               logos={provider.logos}
               payload={provider.description}
               classList='EECellStyle'
+              hideTitle={true}
               pinned={this.pinnedProviders.includes(provider.name)}
               pinStateCallback={async (pinned: boolean) => {
                 if (pinned) {
