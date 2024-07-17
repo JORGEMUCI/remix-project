@@ -25,6 +25,7 @@ interface RemixUIGridCellProps {
   children?: ReactNode
   expandViewEl?: any
   handleExpand?: any
+  searchKeywords?: string[]
 }
 
 export const RemixUIGridCell = (props: RemixUIGridCellProps) => {
@@ -34,16 +35,14 @@ export const RemixUIGridCell = (props: RemixUIGridCellProps) => {
   const [pinned, setPinned] = useState<boolean>(props.pinned)
 
   useEffect(() => {
+    //if (!props.plugin.isActive) return
     if (props.tagList) setAnyEnabled(props.tagList.some((key) => filterCon.keyValueMap[key]?.enabled))
     else setAnyEnabled(filterCon?.keyValueMap['no tag']?.enabled)
     if (!props.tagList || props.tagList.length == 0) setAnyEnabled(true)
-    setAnyEnabled(anyEnabled &&
-    (
-      props.title.toLowerCase().includes(filterCon.filter) ||
-      props.title.includes(filterCon.filter)) ||
-      props?.payload?.toLowerCase().includes(filterCon.filter) ||
-      props?.payload?.includes(filterCon.filter)
-    )
+   
+    setAnyEnabled(
+      anyEnabled && (props.title.toLowerCase().includes(filterCon.filter) || props.searchKeywords?.some(searchKeyword => filterCon.filter.includes(searchKeyword))))
+
   }, [filterCon, props.tagList])
 
   /*const listenOnExpand = (key) => {
