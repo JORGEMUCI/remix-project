@@ -109,7 +109,7 @@ export class EnvironmentExplorer extends ViewPlugin {
               logos={provider.logos}
               hideTitle={true}
               classList='EECellStyle'
-              searchKeywords={['Injected', provider.displayName, provider.title, provider.description]}
+              searchKeywords={['Injected', provider.name, provider.displayName, provider.title, provider.description]}
               pinned={this.pinnedProviders.includes(provider.name)}
               pinStateCallback={async (pinned: boolean) => {
                 if (pinned) {
@@ -143,7 +143,7 @@ export class EnvironmentExplorer extends ViewPlugin {
               logos={provider.logos}
               classList='EECellStyle'
               hideTitle={true}
-              searchKeywords={['Remix VMs', provider.displayName, provider.title, provider.description]}
+              searchKeywords={['Remix VMs', provider.name, provider.displayName, provider.title, provider.description]}
               pinned={this.pinnedProviders.includes(provider.name)}
               pinStateCallback={async (pinned: boolean) => {
                 if (pinned) {
@@ -176,7 +176,7 @@ export class EnvironmentExplorer extends ViewPlugin {
               logos={provider.logos}
               classList='EECellStyle'
               hideTitle={true}
-              searchKeywords={['Externals', provider.displayName, provider.title, provider.description]}
+              searchKeywords={['Externals', provider.name, provider.displayName, provider.title, provider.description]}
               pinned={this.pinnedProviders.includes(provider.name)}
               pinStateCallback={async (pinned: boolean) => {
                 if (pinned) {
